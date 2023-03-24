@@ -8,3 +8,18 @@
         overflow: hidden;
     }
 }
+
+@layer components {
+    .btn {
+        @apply bg-[#12b488] text-white px-3 py-2 rounded-md text-sm;
+    }
+    .btn-del {
+        @apply bg-[#d9534f] text-white px-3 py-2 rounded-md text-sm;
+    }
+    .btn-edit {
+        @apply bg-[#f0ad4e] text-white px-3 py-2 rounded-md text-sm;
+    }
+    .card {
+        @apply p-3 rounded-md bg-white shadow-md h-full;
+    }
+}
