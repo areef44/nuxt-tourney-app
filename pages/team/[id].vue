@@ -6,7 +6,7 @@
             <div class="flex justify-between">
                 <h1 class="text-white font-bold text-3xl py-4 ml-4">Thursday E-Sports Members</h1>
                 <NuxtLink to="/team">
-                    <p class="btn mr-4 my-4">Kembali</p>
+                    <p class="btn-del mr-4 my-4">Kembali</p>
                 </NuxtLink>
             </div>
     </div>

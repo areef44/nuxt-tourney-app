@@ -79,7 +79,7 @@
                                                         <button class="btn-save">
                                                         Simpan
                                                         </button>
-                                                        <button @click="onToggle" class="btn">
+                                                        <button @click="onToggle" class="btn-del">
                                                         Kembali
                                                         </button>
                                                     </div>

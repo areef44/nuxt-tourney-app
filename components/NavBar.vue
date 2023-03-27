@@ -17,22 +17,22 @@
                             <li><NuxtLink to="/team">Team</NuxtLink></li>
                         </div>
                     </div>
-                    <div class="flex my-11">
+                    <!-- <div class="flex my-11">
                         <div class="mr-4">
                             <li><Icon name="ph:currency-circle-dollar-bold"/></li>
                         </div>
                         <div class="p-[3px]">
                             <li><NuxtLink to="/pembayaran">Pembayaran</NuxtLink></li>
                         </div>
-                    </div>
-                    <div class="flex my-11">
+                    </div> -->
+                    <!-- <div class="flex my-11">
                         <div class="mr-4">
                             <li><Icon name="mdi:document"/></li>
                         </div>
                         <div class="p-[3px]">
                             <li><NuxtLink to="/laporan">Laporan</NuxtLink></li>
                         </div>
-                    </div>
+                    </div> -->
                     <div class="flex my-11">
                         <div class="mr-4">
                             <li><Icon name="mdi:logout"/></li>
