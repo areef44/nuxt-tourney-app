@@ -56,8 +56,7 @@
                                         <NuxtLink :to="`/team/{id}`">
                                             <p class="btn mr-1">Details</p>
                                         </NuxtLink>
-                                        <button class="btn-edit mr-1">Edit</button>
-                                        <button class="btn-del">Delete</button>
+                                        <button class="btn-edit mr-1">Sudah Bayar</button>
                                     </div>
                                 </td>
                             </tr>
@@ -85,8 +84,7 @@
                                         <NuxtLink :to="`/team/{id}`">
                                             <p class="btn mr-1">Details</p>
                                         </NuxtLink>
-                                        <button class="btn-edit mr-1">Edit</button>
-                                        <button class="btn-del">Delete</button>
+                                        <button class="btn-edit mr-1">Sudah Bayar</button>
                                     </div>
                                 </td>
                             </tr>
@@ -114,8 +112,7 @@
                                         <NuxtLink :to="`/team/{id}`">
                                             <p class="btn mr-1">Details</p>
                                         </NuxtLink>
-                                        <button class="btn-edit mr-1">Edit</button>
-                                        <button class="btn-del">Delete</button>
+                                        <button class="btn-edit mr-1">Sudah Bayar</button>
                                     </div>
                                 </td>
                             </tr>
@@ -143,8 +140,7 @@
                                         <NuxtLink :to="`/team/{id}`">
                                             <p class="btn mr-1">Details</p>
                                         </NuxtLink>
-                                        <button class="btn-edit mr-1">Edit</button>
-                                        <button class="btn-del">Delete</button>
+                                        <button class="btn-edit mr-1">Sudah Bayar</button>
                                     </div>
                                 </td>
                             </tr>
@@ -172,8 +168,7 @@
                                          <NuxtLink :to="`/team/{id}`">
                                             <p class="btn mr-1">Details</p>
                                         </NuxtLink>
-                                        <button class="btn-edit mr-1">Edit</button>
-                                        <button class="btn-del">Delete</button>
+                                        <button class="btn-edit mr-1">Sudah Bayar</button>
                                     </div>
                                 </td>
                             </tr>
