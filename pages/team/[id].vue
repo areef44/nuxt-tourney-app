@@ -2,19 +2,29 @@
   <div>
     <div class="bg-[#1A1C22] h-full">
       <div class="flex justify-between">
-        <h1 class="text-white font-bold text-3xl py-4 ml-4">
+        <h1 class="text-white font-bold text-2xl py-2 ml-4">
           {{ teamDetails.name }} E-Sports Members
         </h1>
-        <div class="text-white font-bold text-xl">
+        <!-- <div class="text-white font-bold text-xl">
           <h1>Nama Leader : {{ teamDetails.leader.name }}</h1>
           <h1>Status Pembayaran : {{ statusPembayaran }}</h1>
           <button @click="onToggle" class="btn-edit" v-if="statusPembayaran !== 'Lunas' ">Confirm</button>
-        </div>
+        </div> -->
         <NuxtLink to="/team">
-          <p class="btn-del mr-4 my-4">Kembali</p>
+          <p class="btn-del mr-4 my-2 font-bold">Kembali</p>
         </NuxtLink>
       </div>
     </div>
+
+       <div class="text-white font-bold text-xl bg-[#1A1C22] pl-4">
+          <div class="mr-4">
+              <h1>Leader : {{ teamDetails.leader.name }}</h1>
+          </div>
+          <div class="flex justify-between mt-2">
+              <h1 class="mb-2">Status Pembayaran : {{ statusPembayaran }}</h1>
+              <button @click="onToggle" class="btn-edit mr-4 mb-2" v-if="statusPembayaran !== 'Lunas' ">Konfirmasi Pembayaran</button>
+          </div>
+        </div>
 
     <div class="grid grid-cols-4 gap-1">
       <div
@@ -23,24 +33,25 @@
         :key="index"
       >
         <div class="text-center text-gray-800">
-          <h1 class="text-3xl font-semibold my-4">{{ member.name }}</h1>
+          <img src="~/assets/medal.png" alt="" width="25px" class="center">
+          <h1 class="text-2xl font-semibold my-2">{{ member.name }}</h1>
           <p class="">
-            <Icon name="ic:baseline-email" class="mr-1 my-2" />{{
+            <Icon name="ic:baseline-email" class="mr-1 my-1" />{{
               member.email
             }}
           </p>
           <p class="">
-            <Icon name="ic:baseline-phone-android" class="mr-1 my-2" />{{
+            <Icon name="ic:baseline-phone-android" class="mr-1 my-1" />{{
               member.phone
             }}
           </p>
           <p class="">
-            <Icon name="ic:baseline-school" class="mr-1 my-2" />{{
+            <Icon name="ic:baseline-school" class="mr-1 my-1" />{{
               member.custom_fields
             }}
           </p>
           <p class="font-light">
-            <Icon name="ic:baseline-location-city" class="mr-1 my-2" />{{
+            <Icon name="ic:baseline-location-city" class="mr-1 my-1" />{{
               member.address
             }}
           </p>
@@ -65,7 +76,7 @@
               </p>
             </div>
             <div class="p-3 mt-2 text-center space-x-4 md:block">
-              <button class="btn-save" @click="onToggle() ; statusPembayaran='Lunas'">Bayar</button>
+              <button class="btn-save" @click="onToggle() ; statusPembayaran='Lunas'">Konfirmasi</button>
               <button @click="onToggle" class="btn-del">Kembali</button>
             </div>
           </div>
@@ -97,5 +108,12 @@ function onToggle() {
 }
 </script>
 
-<style lang="scss" scoped>
+<style scoped>
+
+.center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
 </style>

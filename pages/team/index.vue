@@ -1,4 +1,7 @@
 <template>
+  <div class="bg-[#1A1C22] h-20 text-2xl text-white">
+    <h1 class="p-5 font-semibold">Team Dashboard</h1>
+  </div>
   <div class="flex flex-col h-full">
     <!-- Table -->
     <div
@@ -63,20 +66,20 @@
               </tr>
             </tbody>
           </table>
-          <div class="flex justify-center gap-5">
+          <div class="flex justify-center gap-5 py-4 pt-4">
             <button
-              class="bg-lime-300 p-2 rounded-lg"
+              class="bg-[#12b488] p-2 rounded-md text-white"
               @click="previousTeams"
               :disabled="page <= 0 ? true : false"
             >
-              Previous
+            <Icon name="material-symbols:keyboard-double-arrow-left-rounded"/>
             </button>
             <button
-              class="bg-lime-300 p-2 rounded-lg"
+              class="bg-[#12b488] p-2 rounded-md text-white"
               @click="nextTeams"
               :disabled="page >= totalPage - 1 ? true : false"
             >
-              Next
+            <Icon name="material-symbols:keyboard-double-arrow-right"/>
             </button>
           </div>
         </div>

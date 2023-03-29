@@ -7,14 +7,14 @@
         </div>
         <!-- Output content here -->
         <div class="w-4/5">
-            <div class="h-20 bg-[#1A1C22] text-white flex p-4 justify-between">
+            <!-- <div class="h-20 bg-[#1A1C22] text-white flex p-4 justify-between">
                 <div>
                     <h1 class="text-xl font-bold pt-2">Dashboard</h1>
                 </div>
                 <div>
                     <img src="~/assets/image.png" alt="">
                 </div>
-            </div>
+            </div> -->
             <div class="bg-gray-800 min-h-screen bg-[url('assets/bbg.jpg')] bg-cover">
                 <slot />
             </div>
