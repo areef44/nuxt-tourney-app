@@ -68,6 +68,7 @@
           </table>
           <div class="flex justify-center gap-5 py-4 pt-4">
             <button
+            :class="{'bg-slate-400':(page <= 0),'bg-[#12b488]':(page > 0) }"
               class="bg-[#12b488] p-2 rounded-md text-white"
               @click="previousTeams"
               :disabled="page <= 0 ? true : false"
@@ -75,7 +76,8 @@
             <Icon name="material-symbols:keyboard-double-arrow-left-rounded"/>
             </button>
             <button
-              class="bg-[#12b488] p-2 rounded-md text-white"
+              :class="{'bg-slate-400':(page >= totalPage-1),'bg-[#12b488]':(page < totalPage-1) }"
+              class="  p-2 rounded-md text-white"
               @click="nextTeams"
               :disabled="page >= totalPage - 1 ? true : false"
             >

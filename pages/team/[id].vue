@@ -47,7 +47,7 @@
           </p>
           <p class="">
             <Icon name="ic:baseline-school" class="mr-1 my-1" />{{
-              member.custom_fields
+               (/:"(.*)"/.exec(member.custom_fields)[1])
             }}
           </p>
           <p class="font-light">
