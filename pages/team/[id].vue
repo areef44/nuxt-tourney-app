@@ -3,7 +3,7 @@
     <div class="bg-[#1A1C22] h-full">
       <div class="flex justify-between">
         <h1 class="text-white font-bold text-2xl py-2 ml-4">
-          {{ teamDetails.name }} E-Sports Members
+          {{ teamDetails.name }} Members
         </h1>        
         <NuxtLink to="/team">
           <p class="btn-del mr-4 my-2 font-bold">Kembali</p>
@@ -13,7 +13,7 @@
 
        <div class="text-white font-bold text-xl bg-[#1A1C22] pl-4">
           <div class="mr-4">
-              <h1>Leader : {{ teamDetails.leader.name }}</h1>
+              <h1>Leader : <span class="text-red-400 text-2xl underline">{{ teamDetails.leader.name }}</span></h1>
           </div>
           <div class="flex justify-between mt-2">
               <h1 class="mb-2">Status Pembayaran : {{ statusPembayaran }}</h1>

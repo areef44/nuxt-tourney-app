@@ -30,5 +30,9 @@
     .router-link-exact-active{
         color: #12b488
     }
+
+    .active{
+        color:blue;
+    }
     
 </style>

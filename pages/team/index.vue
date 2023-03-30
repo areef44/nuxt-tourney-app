@@ -4,37 +4,36 @@
   </div>
   <div class="flex flex-col h-full">
     <!-- Table -->
-    <div
-      class="w-9/10 mx-6 my-12 bg-white shadow-lg rounded-sm border border-gray-200"
-    >
-      <header class="px-5 py-4 border-b border-gray-100">
-        <div class="flex justify-center gap-5 py-4 pt-4">
-        <h2 class="font-semibold text-gray-800">
-          Daftar Team Peserta Turnamen
-        </h2>
-       <h2 class="font-semibold text-gray-800">
-          Total Team = {{totalAll}}
-        </h2>
-       
+    <div class="w-9/10 mx-6 my-2 bg-white shadow-lg rounded-sm border border-gray-200">
+      <header class="px-5 py-1 border-b border-gray-100">
+        <div class=" gap-5 py-1 pt-4">
+          <div class="flex justify-between">
+            <h2 class="font-semibold text-gray-800">
+              Daftar Team Peserta Turnamen
+            </h2>
+           <h2 class="font-semibold text-gray-800">
+              Total Team = {{totalAll}}
+            </h2>
+          </div>
+          <div class="text-xs flex justify-end py-2">
+            <h1 class="font-semibold text-md">Tampilkan : </h1>
+            <button
+             class="bg-[#24a0ed] hover:bg-slate-700 p-1 rounded-sm mx-1 text-white"
+             @click="all">
+            Semua
+           </button>
             <button            
-              class="bg-[#12b488] p-2 rounded-md text-white"
-              @click="activate"
-            >
-            Lunas
+              class="bg-[#12b488]  hover:bg-slate-700 p-1 mr-1 rounded-sm text-white"
+              @click="activate">
+            Sudah Bayar
             </button>
             <button
-              class="bg-red-500  p-2 rounded-md text-white"
-              @click="inactivate"
-            >
-            Belum Lunas
-            </button>
-             <button
-              class="bg-violet-500  p-2 rounded-md text-white"
-              @click="all"
-            >
-            ALL
+              class="bg-red-500 p-1 hover:bg-slate-700 rounded-sm mr-1 text-white"
+              @click="inactivate">
+            Belum Bayar
             </button>
           </div>
+        </div>
       </header>
       <div class="p-3">
         <div class="overflow-x-auto">
@@ -69,21 +68,21 @@
                 </td>
                 <td class="p-2 whitespace-nowrap">
                   <div class="flex items-center">
-                    <div class="font-medium text-gray-800">{{ team.name }}</div>
+                    <div class="font-semibold text-gray-800">{{ team.name }}</div>
                   </div>
                 </td>
                 <td class="p-2 whitespace-nowrap">
                   <div class="text-left">{{ team.leader }}</div>
                 </td>
                 <td class="p-2 whitespace-nowrap">
-                  <div class="text-center font-medium text-green-500">
+                  <div class="text-center font-semibold text-red-500">
                     {{ team.totalMember }}
                   </div>
                 </td>
                 <td class="p-2 whitespace-nowrap">
                   <div class="flex justify-center">
                     <NuxtLink :to="`/team/${team.id}`">
-                      <p class="btn mr-1">Details</p>
+                      <p class="btn hover:bg-slate-500 mr-1">Details</p>
                     </NuxtLink>
                   </div>
                 </td>
@@ -93,7 +92,7 @@
           <div class="flex justify-center gap-5 py-4 pt-4">
             <button
             :class="{'bg-slate-400':(page <= 0),'bg-[#12b488]':(page > 0) }"
-              class="bg-[#12b488] p-2 rounded-md text-white"
+              class="bg-[#12b488] p-2 rounded-md text-white hover:bg-slate-500"
               @click="previousTeams"
               :disabled="page <= 0 ? true : false"
             >
@@ -101,7 +100,7 @@
             </button>
             <button
               :class="{'bg-slate-400':(page >= totalPage-1),'bg-[#12b488]':(page < totalPage-1) }"
-              class="  p-2 rounded-md text-white"
+              class="  p-2 rounded-md text-white hover:bg-slate-500"
               @click="nextTeams"
               :disabled="page >= totalPage - 1 ? true : false"
             >
