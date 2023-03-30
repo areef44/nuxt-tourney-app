@@ -8,9 +8,33 @@
       class="w-9/10 mx-6 my-12 bg-white shadow-lg rounded-sm border border-gray-200"
     >
       <header class="px-5 py-4 border-b border-gray-100">
+        <div class="flex justify-center gap-5 py-4 pt-4">
         <h2 class="font-semibold text-gray-800">
           Daftar Team Peserta Turnamen
         </h2>
+       <h2 class="font-semibold text-gray-800">
+          Total Team = {{totalAll}}
+        </h2>
+       
+            <button            
+              class="bg-[#12b488] p-2 rounded-md text-white"
+              @click="activate"
+            >
+            Lunas
+            </button>
+            <button
+              class="bg-red-500  p-2 rounded-md text-white"
+              @click="inactivate"
+            >
+            Belum Lunas
+            </button>
+             <button
+              class="bg-violet-500  p-2 rounded-md text-white"
+              @click="all"
+            >
+            ALL
+            </button>
+          </div>
       </header>
       <div class="p-3">
         <div class="overflow-x-auto">
@@ -99,26 +123,60 @@ const headers = {
 const res = await $fetch("https://services-dev.alkademi.id/v1/v1/team/list", {
   headers,
 });
-const Allteams = res.data;
-const teamPage = ref(Allteams.slice(0, 8));
-const totalTeam = ref(Allteams.length);
-const totalPage = Math.ceil(totalTeam.value / 8)
+const Allteams = ref(res.data);
+const totalAll = res.data.length
+const slide = ref(0)
+const teamPage = computed(()=> Allteams.value.slice(slide.value, slide.value + 8))
+const totalTeam = computed(()=>Allteams.value.length);
+const totalPage = computed(()=>Math.ceil(totalTeam.value / 8))
 const page = ref(0);
+
+
+function nextTeams() {    
+  if (page.value < totalPage.value) {
+    page.value++;
+  }
+  slide.value = page.value * 8;
+}
+
+
 function previousTeams() {
   if (page.value > 0) {
     page.value--;
   }
-  let slide = page.value * 8;
-  teamPage.value = Allteams.slice(slide, slide + 8);
+  slide.value = page.value * 8;
 }
 
-function nextTeams() {
-    
-  if (page.value < totalPage) {
-    page.value++;
-  }
-  let slide = page.value * 8;
-  teamPage.value = Allteams.slice(slide, slide + 8);
+async function all(){
+   const res = await $fetch("https://services-dev.alkademi.id/v1/v1/team/list", {
+  headers,
+});
+const data = res.data
+Allteams.value = data
+slide.value = 0
+page.value = 0
+
+}
+
+async function activate(){
+  const res = await $fetch("https://services-dev.alkademi.id/v1/v1/team/list?status=active", {
+  headers,
+});
+const data = res.data
+Allteams.value = data
+slide.value = 0
+page.value = 0
+
+}
+
+async function inactivate(){
+  const res = await $fetch("https://services-dev.alkademi.id/v1/v1/team/list?status=inactive", {
+  headers,
+});
+const data = res.data
+Allteams.value = data
+slide.value = 0
+page.value = 0
 }
 </script>
 

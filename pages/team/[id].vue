@@ -4,12 +4,7 @@
       <div class="flex justify-between">
         <h1 class="text-white font-bold text-2xl py-2 ml-4">
           {{ teamDetails.name }} E-Sports Members
-        </h1>
-        <!-- <div class="text-white font-bold text-xl">
-          <h1>Nama Leader : {{ teamDetails.leader.name }}</h1>
-          <h1>Status Pembayaran : {{ statusPembayaran }}</h1>
-          <button @click="onToggle" class="btn-edit" v-if="statusPembayaran !== 'Lunas' ">Confirm</button>
-        </div> -->
+        </h1>        
         <NuxtLink to="/team">
           <p class="btn-del mr-4 my-2 font-bold">Kembali</p>
         </NuxtLink>
@@ -76,7 +71,7 @@
               </p>
             </div>
             <div class="p-3 mt-2 text-center space-x-4 md:block">
-              <button class="btn-save" @click="onToggle() ; statusPembayaran='Lunas'">Konfirmasi</button>
+              <button class="btn-save" @click="onToggle() ; activate()">Konfirmasi</button>
               <button @click="onToggle" class="btn-del">Kembali</button>
             </div>
           </div>
@@ -97,15 +92,28 @@ const res = await $fetch(
   `https://services-dev.alkademi.id/v1/v1/team/detail?id=${id}`,
   { headers }
 );
-const teamDetails = res.data;
+const teamDetails = reactive(res.data);
 const teamMembers = teamDetails.members;
-const statusPembayaran = ref(teamDetails.status < 1 ? "Belum Lunas" : "Lunas");
+const statusPembayaran = computed(() => teamDetails.status === 0 ? "Belum Lunas" : "Lunas");
 const isOpen = ref(false);
 const isModalVisible = computed(() => isOpen.value);
-console.log(isModalVisible);
 function onToggle() {
   isOpen.value = !isOpen.value;
 }
+
+async function activate(){
+  await $fetch(
+  `https://services-dev.alkademi.id/v1/v1/team/update/activate?id=${id}`,
+  { headers }
+);
+const res =  await $fetch(
+  `https://services-dev.alkademi.id/v1/v1/team/detail?id=${id}`,
+  { headers }
+)
+const newData = res.data
+teamDetails.status = newData.status 
+}
+
 </script>
 
 <style scoped>
