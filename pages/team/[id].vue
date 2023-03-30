@@ -26,7 +26,7 @@
           </div>
         </div>
 
-    <div class="grid grid-cols-4 gap-1">
+    <div class="grid grid-cols-3 gap-1">
       <div
         class="p-8 bg-white shadow mt-8 mx-4 rounded-md"
         v-for="(member, index) in teamMembers"
@@ -102,6 +102,7 @@ const teamMembers = teamDetails.members;
 const statusPembayaran = ref(teamDetails.status < 1 ? "Belum Lunas" : "Lunas");
 const isOpen = ref(false);
 const isModalVisible = computed(() => isOpen.value);
+console.log(isModalVisible);
 function onToggle() {
   isOpen.value = !isOpen.value;
 }
