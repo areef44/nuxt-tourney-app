@@ -104,9 +104,7 @@ const teamPage = ref(Allteams.slice(0, 8));
 const totalTeam = ref(Allteams.length);
 const totalPage = Math.ceil(totalTeam.value / 8)
 const page = ref(0);
-console.log(totalPage)
 function previousTeams() {
-    console.log(page.value)
   if (page.value > 0) {
     page.value--;
   }

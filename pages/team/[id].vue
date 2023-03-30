@@ -102,7 +102,6 @@ const teamMembers = teamDetails.members;
 const statusPembayaran = ref(teamDetails.status < 1 ? "Belum Lunas" : "Lunas");
 const isOpen = ref(false);
 const isModalVisible = computed(() => isOpen.value);
-console.log(isModalVisible);
 function onToggle() {
   isOpen.value = !isOpen.value;
 }
