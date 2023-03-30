@@ -28,30 +28,30 @@
 
     <div class="grid grid-cols-3 gap-1">
       <div
-        class="p-8 bg-white shadow mt-8 mx-4 rounded-md"
+        class="p-8 bg-white shadow mt-4 mx-4 rounded-md"
         v-for="(member, index) in teamMembers"
         :key="index"
       >
         <div class="text-center text-gray-800">
-          <img src="~/assets/medal.png" alt="" width="25px" class="center">
-          <h1 class="text-2xl font-semibold my-2">{{ member.name }}</h1>
+          <Icon name="mdi:medal-outline" class="mr-1 my-1 text-orange-600" />
+          <h1 class="text-2xl font-semibold my-2 underline">{{ member.name }}</h1>
           <p class="">
-            <Icon name="ic:baseline-email" class="mr-1 my-1" />{{
+            <Icon name="ic:baseline-email" class="mr-1 my-1" /> : {{
               member.email
             }}
           </p>
           <p class="">
-            <Icon name="ic:baseline-phone-android" class="mr-1 my-1" />{{
+            <Icon name="ic:baseline-phone-android" class="mr-1 my-1" /> : {{
               member.phone
             }}
           </p>
           <p class="">
-            <Icon name="ic:baseline-school" class="mr-1 my-1" />{{
+            <Icon name="ic:baseline-school" class="mr-1 my-1" /> : {{
                (/:"(.*)"/.exec(member.custom_fields)[1])
             }}
           </p>
           <p class="font-light">
-            <Icon name="ic:baseline-location-city" class="mr-1 my-1" />{{
+            <Icon name="ic:baseline-location-city" class="mr-1 my-1" /> : {{
               member.address
             }}
           </p>
