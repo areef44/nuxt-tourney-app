@@ -14,24 +14,15 @@
            <h2 class="font-semibold text-gray-800">
               Total Team = {{totalAll}}
             </h2>
-          </div>
+          </div>          
           <div class="text-xs flex justify-end py-2">
             <h1 class="font-semibold text-md">Tampilkan : </h1>
-            <button
-             class="bg-[#24a0ed] hover:bg-slate-700 p-1 rounded-sm mx-1 text-white"
-             @click="all">
-            Semua
-           </button>
-            <button            
-              class="bg-[#12b488]  hover:bg-slate-700 p-1 mr-1 rounded-sm text-white"
-              @click="activate">
-            Sudah Bayar
-            </button>
-            <button
-              class="bg-red-500 p-1 hover:bg-slate-700 rounded-sm mr-1 text-white"
-              @click="inactivate">
-            Belum Bayar
-            </button>
+            <select data-te-select-init data-te-select-size="lg" name="" id="" @change="teamsSelect($event)">
+          <option value="all" selected>Semua</option>
+          <option value="active">Sudah Bayar</option>
+          <option value="inactive">Belum Bayar</option>
+        </select>
+           
           </div>
         </div>
       </header>
@@ -130,6 +121,23 @@ const totalTeam = computed(()=>Allteams.value.length);
 const totalPage = computed(()=>Math.ceil(totalTeam.value / 8))
 const page = ref(0);
 
+function teamsSelect(e){
+  switch (e.target.value) {
+      case "all":
+      all();
+      break;
+      case "active":
+      activate();
+      break;
+      case "inactive":
+      inactivate();
+      break;
+  
+    default:
+      all();
+      break;
+  }
+}
 
 function nextTeams() {    
   if (page.value < totalPage.value) {
