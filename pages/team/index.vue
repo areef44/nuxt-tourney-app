@@ -106,11 +106,11 @@
 
 <script setup>
 const headers = {
-  Authorization: "theMyth",
+  Authorization: "2d317a6b0048b438d219f8ffc8c5b927322415",
   "D-App-Authorization":
-    "MjAyMy0wMy0yN1QyMToxNDo1Ny42MTNafGRldi5hbGthZGVtaS5pZHx2T1ZINnNkbXBOV2pSMjcxQ2M3cmR4czAxbHdIemZyMw==",
+    "MjAyMy0wNC0wMVQxNDowMjozNS40MTZafGZ1bi5hbGthZGVtaS5pZHx2T1ZINnNkbXBOV2pSMjcxQ2M3cmR4czAxbHdIemZyMw==",
 };
-const res = await $fetch("https://services-dev.alkademi.id/v1/v1/team/list", {
+const res = await $fetch("https://services.alkademi.id/v1/v1/team/list", {
   headers,
 });
 const Allteams = ref(res.data);
@@ -155,7 +155,7 @@ function previousTeams() {
 }
 
 async function all(){
-   const res = await $fetch("https://services-dev.alkademi.id/v1/v1/team/list", {
+   const res = await $fetch("https://services.alkademi.id/v1/v1/team/list", {
   headers,
 });
 const data = res.data
@@ -166,7 +166,7 @@ page.value = 0
 }
 
 async function activate(){
-  const res = await $fetch("https://services-dev.alkademi.id/v1/v1/team/list?status=active", {
+  const res = await $fetch("https://services.alkademi.id/v1/v1/team/list?status=active", {
   headers,
 });
 const data = res.data
@@ -177,7 +177,7 @@ page.value = 0
 }
 
 async function inactivate(){
-  const res = await $fetch("https://services-dev.alkademi.id/v1/v1/team/list?status=inactive", {
+  const res = await $fetch("https://services.alkademi.id/v1/v1/team/list?status=inactive", {
   headers,
 });
 const data = res.data

@@ -40,10 +40,10 @@
               member.phone
             }}
           </p>
-          <p class="">
-            <Icon name="ic:baseline-school" class="mr-1 my-1" /> : {{
-               (/:"(.*)"/.exec(member.custom_fields)[1])
-            }}
+            <span class="hidden">{{costumeFields= JSON.parse(member.custom_fields.replace(`\\`,''))}}</span>
+            <Icon name="ic:baseline-school" class="mr-1 my-1" />  Costume Field :
+          <p class="" v-for="(edu,key) in costumeFields" :key="key">            
+            {{key +" : "+ edu}}
           </p>
           <p class="font-light">
             <Icon name="ic:baseline-location-city" class="mr-1 my-1" /> : {{
@@ -84,30 +84,32 @@
 <script setup>
 const { id } = useRoute().params;
 const headers = {
-  Authorization: "theMyth",
+  Authorization: "2d317a6b0048b438d219f8ffc8c5b927322415",
   "D-App-Authorization":
-    "MjAyMy0wMy0yN1QyMToxNDo1Ny42MTNafGRldi5hbGthZGVtaS5pZHx2T1ZINnNkbXBOV2pSMjcxQ2M3cmR4czAxbHdIemZyMw==",
+    "MjAyMy0wNC0wMVQxNDowMjozNS40MTZafGZ1bi5hbGthZGVtaS5pZHx2T1ZINnNkbXBOV2pSMjcxQ2M3cmR4czAxbHdIemZyMw==",
 };
 const res = await $fetch(
-  `https://services-dev.alkademi.id/v1/v1/team/detail?id=${id}`,
+  `https://services.alkademi.id/v1/v1/team/detail?id=${id}`,
   { headers }
 );
+const costumeFields = ref('')
 const teamDetails = reactive(res.data);
 const teamMembers = teamDetails.members;
 const statusPembayaran = computed(() => teamDetails.status === 0 ? "Belum Lunas" : "Lunas");
 const isOpen = ref(false);
 const isModalVisible = computed(() => isOpen.value);
+console.log()
 function onToggle() {
   isOpen.value = !isOpen.value;
 }
 
 async function activate(){
   await $fetch(
-  `https://services-dev.alkademi.id/v1/v1/team/update/activate?id=${id}`,
+  `https://services.alkademi.id/v1/v1/team/update/activate?id=${id}`,
   { headers }
 );
 const res =  await $fetch(
-  `https://services-dev.alkademi.id/v1/v1/team/detail?id=${id}`,
+  `https://services.alkademi.id/v1/v1/team/detail?id=${id}`,
   { headers }
 )
 const newData = res.data
