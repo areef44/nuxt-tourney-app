@@ -40,7 +40,7 @@
               member.phone
             }}
           </p>
-            <span class="hidden">{{costumeFields= JSON.parse(member.custom_fields.replace(`\\`,''))}}</span>
+            <span class="hidden">{{costumeFields= JSON.parse(member.custom_fields)}}</span>
             <Icon name="ic:baseline-school" class="mr-1 my-1" />  Costume Field :
           <p class="" v-for="(edu,key) in costumeFields" :key="key">            
             {{key +" : "+ edu}}
@@ -82,16 +82,20 @@
 </template>
 
 <script setup>
+const baseUrl = "https://services.alkademi.id/v1/v1/team/"
+const author = "2d317a6b0048b438d219f8ffc8c5b927322415"
+const token = "MjAyMy0wNC0wMVQxNDowMjozNS40MTZafGZ1bi5hbGthZGVtaS5pZHx2T1ZINnNkbXBOV2pSMjcxQ2M3cmR4czAxbHdIemZyMw=="
 const { id } = useRoute().params;
 const headers = {
-  Authorization: "2d317a6b0048b438d219f8ffc8c5b927322415",
+  Authorization: author,
   "D-App-Authorization":
-    "MjAyMy0wNC0wMVQxNDowMjozNS40MTZafGZ1bi5hbGthZGVtaS5pZHx2T1ZINnNkbXBOV2pSMjcxQ2M3cmR4czAxbHdIemZyMw==",
+    `${token}`,
 };
 const res = await $fetch(
-  `https://services.alkademi.id/v1/v1/team/detail?id=${id}`,
+  `${baseUrl}detail?id=${id}`,
   { headers }
 );
+console.log(res)
 const costumeFields = ref('')
 const teamDetails = reactive(res.data);
 const teamMembers = teamDetails.members;
@@ -105,11 +109,11 @@ function onToggle() {
 
 async function activate(){
   await $fetch(
-  `https://services.alkademi.id/v1/v1/team/update/activate?id=${id}`,
+  `${baseUrl}update/activate?id=${id}`,
   { headers }
 );
 const res =  await $fetch(
-  `https://services.alkademi.id/v1/v1/team/detail?id=${id}`,
+  `${baseUrl}team/detail?id=${id}`,
   { headers }
 )
 const newData = res.data

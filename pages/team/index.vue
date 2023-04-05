@@ -105,14 +105,18 @@
 </template>
 
 <script setup>
+const baseUrl = "https://services.alkademi.id/v1/v1/team/"
+const author = "2d317a6b0048b438d219f8ffc8c5b927322415"
+const token = "MjAyMy0wNC0wMVQxNDowMjozNS40MTZafGZ1bi5hbGthZGVtaS5pZHx2T1ZINnNkbXBOV2pSMjcxQ2M3cmR4czAxbHdIemZyMw=="
 const headers = {
-  Authorization: "2d317a6b0048b438d219f8ffc8c5b927322415",
+  Authorization: author,
   "D-App-Authorization":
-    "MjAyMy0wNC0wMVQxNDowMjozNS40MTZafGZ1bi5hbGthZGVtaS5pZHx2T1ZINnNkbXBOV2pSMjcxQ2M3cmR4czAxbHdIemZyMw==",
+    token,
 };
-const res = await $fetch("https://services.alkademi.id/v1/v1/team/list", {
+const res = await $fetch(`${baseUrl}list`, {
   headers,
 });
+console.log(res)
 const Allteams = ref(res.data);
 const totalAll = res.data.length
 const slide = ref(0)
@@ -155,7 +159,7 @@ function previousTeams() {
 }
 
 async function all(){
-   const res = await $fetch("https://services.alkademi.id/v1/v1/team/list", {
+   const res = await $fetch(`${baseUrl}list`, {
   headers,
 });
 const data = res.data
@@ -166,7 +170,7 @@ page.value = 0
 }
 
 async function activate(){
-  const res = await $fetch("https://services.alkademi.id/v1/v1/team/list?status=active", {
+  const res = await $fetch(`${baseUrl}list?status=active`, {
   headers,
 });
 const data = res.data
@@ -177,7 +181,7 @@ page.value = 0
 }
 
 async function inactivate(){
-  const res = await $fetch("https://services.alkademi.id/v1/v1/team/list?status=inactive", {
+  const res = await $fetch(`${baseUrl}list?status=inactive`, {
   headers,
 });
 const data = res.data
